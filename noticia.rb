@@ -34,8 +34,12 @@ class Noticia
     document.css('.entry-content').first.content.gsub("\n", ' ')
   end
 
+  def author
+    document.css('.entry-content').first.content.split("\n")[3]
+  end
+
   def csv
     "#{title}, #{date}, author, #{tags}, #{content}"
-    [title, date, 'author', tags, content, url]
+    [title, date, author, tags, content, url]
   end
 end

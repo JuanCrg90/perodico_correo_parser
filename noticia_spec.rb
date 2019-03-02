@@ -39,8 +39,13 @@ describe Noticia do
 
   describe '#content' do
     it 'return article content' do
-      binding.pry
       expect(subject.content).to include('Tiraron')
+    end
+  end
+
+  describe '#author' do
+    it 'return article content' do
+      expect(subject.author).to include('Tiraron')
     end
   end
 
