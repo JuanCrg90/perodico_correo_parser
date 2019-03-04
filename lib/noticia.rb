@@ -19,10 +19,11 @@ class Noticia
   end
 
   def tags
-    # TODO some day
-    document.css('.post-categories').first
+    tags = document.css('.post-categories').children.map do |tag|
+      tag.content.strip if tag.class == Nokogiri::XML::Element
+    end.compact
 
-    ''
+    tags.join(',')
   end
 
   def header_image
@@ -39,7 +40,6 @@ class Noticia
   end
 
   def csv
-    "#{title}, #{date}, author, #{tags}, #{content}"
     [title, date, author, tags, content, url]
   end
 end

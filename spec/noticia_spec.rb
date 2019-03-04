@@ -26,8 +26,7 @@ describe Noticia do
 
   describe '#tags' do
     it 'returns the tags' do
-      skip 'we need to analize better the html structure'
-      expect(subject.tags).to eq('')
+      expect(subject.tags).to eq('León')
     end
   end
 
@@ -45,13 +44,13 @@ describe Noticia do
 
   describe '#author' do
     it 'return article content' do
-      expect(subject.author).to include('Tiraron')
+      expect(subject.author).to include('Jessica de la Cruz')
     end
   end
 
   describe '#csv' do
     it 'returns a csv row' do
-      expect(subject.csv).to include('Niega La Salle acceso al área afectada por tala, 2019-03-02T01:00:59-06:00')
+      expect(subject.csv.count).to eq(6)
     end
   end
 end
