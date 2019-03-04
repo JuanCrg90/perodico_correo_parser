@@ -26,7 +26,7 @@ class NewsPage
       puts @urls.count
       puts index
       break unless visit_page
-      break unless index < limit && !limit.nil? 
+      break unless index < limit && !limit.nil?
     end
   end
 

@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), 'noticia')
+require_relative '../lib/noticia'
 
 describe Noticia do
   subject { Noticia.new(url) }

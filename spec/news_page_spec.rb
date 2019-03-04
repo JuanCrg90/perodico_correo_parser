@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), 'news_page')
+require_relative '../lib/news_page'
 
 describe NewsPage do
   let(:news_page) { NewsPage.new(root_url) }
@@ -14,8 +14,8 @@ describe NewsPage do
   end
 
   describe '#visit_all_pages' do
+    # TODO
     it ' ' do
-      binding.pry
     end
   end
 end
