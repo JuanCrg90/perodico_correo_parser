@@ -1,11 +1,10 @@
-require "csv"
-require_relative 'noticia'
+require 'csv'
+require_relative 'news'
 
 class CorreoCsv
   def call(urls)
-
     rows = urls.map do |url|
-      Noticia.new(url).csv
+      News.new(url).csv_row
     end
 
     CSV.open("./periodico_correo.csv", "wb") do |csv|

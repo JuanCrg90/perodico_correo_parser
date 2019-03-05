@@ -1,7 +1,7 @@
-require_relative '../lib/noticia'
+require_relative '../lib/news'
 
-describe Noticia do
-  subject { Noticia.new(url) }
+describe News do
+  subject { described_class.new(url) }
   let(:url) { 'https://periodicocorreo.com.mx/niega-la-salle-acceso-al-area-afectada-por-tala/' }
 
   describe 'Get The new' do
@@ -48,9 +48,12 @@ describe Noticia do
     end
   end
 
-  describe '#csv' do
+  describe '#csv_row' do
     it 'returns a csv row' do
-      expect(subject.csv.count).to eq(6)
+      aggregate_failures do
+        expect(subject.csv_row.count).to eq(6)
+        expect(subject.csv_row.first).to eq('Niega La Salle acceso al área afectada por tala')
+      end
     end
   end
 end

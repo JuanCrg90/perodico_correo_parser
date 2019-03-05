@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 require 'pry'
 
-class Noticia
+class News
   attr_accessor :url, :document
 
   def initialize(url)
@@ -32,14 +32,18 @@ class Noticia
   end
 
   def content
+    # TODO Improve the gsub chain
     document.css('.entry-content').first.content.gsub("\n", ' ')
+            .gsub('“', '"')
+            .gsub('”', '"')
+            .gsub('…', '...')
   end
 
   def author
     document.css('.entry-content').first.content.split("\n")[3]
   end
 
-  def csv
+  def csv_row
     [title, date, author, tags, content, url]
   end
 end
